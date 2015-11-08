@@ -21,6 +21,8 @@ class Hangman
     array.join.include?(input) ? true : false
   end
   
+  #invalid if input is > 1 or is not a letter;
+  # \W strains non-letters AND non-digits, while \d further strains for digits
   def invalid_entry?(input)
     (input.length > 1 || input =~ /\W/ || input =~ /\d/ ) ? true : false
   end
@@ -75,20 +77,14 @@ class Hangman
   protected
   
   def get_word_to_guess
-  dictionary = File.open("dictionary.txt", "r")
-  dictionary_array = dictionary.readlines.select { |word| word.length.between?(5, 12) }
-  word_to_guess = dictionary_array[rand(dictionary_array.length)].chop.downcase 
-    #chop to remove "/r/n" at the end
-    #since some words in the dictionary begin with a capital letter
-  word_to_guess
+    dictionary = File.open("dictionary.txt", "r")
+    dictionary_array = dictionary.readlines.select { |word| word.length.between?(5, 12) }
+    word_to_guess = dictionary_array[rand(dictionary_array.length)].chop.downcase 
+      #chop to remove "/r/n" at the end
+      #since some words in the dictionary begin with a capital letter
+    word_to_guess
   end
 
 end
 
 Hangman.new.game
-
-
-
-
-
-

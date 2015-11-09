@@ -1,0 +1,14 @@
+--- !ruby/object:HangmanSaveGame
+board:
+- _
+- _
+- _
+- _
+- _
+- _
+- _
+- _
+- _
+word: imprecise
+turns: 5
+incorrect_guesses: []

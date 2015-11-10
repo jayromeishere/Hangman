@@ -51,7 +51,7 @@ class Hangman
       
       if invalid_entry?(guess)
         puts "*** Your entry is invalid.  Please enter a single letter. ***"
-      elsif has_been_guessed(guess, incorrect_guesses)
+      elsif has_been_guessed(guess, incorrect_guesses) || has_been_guessed(guess, @board)
         puts "*** You've already guessed '#{guess}'.  Enter a different one. ***"
       elsif @word.include? guess
         puts "*** #{random_exclamation} ***"
